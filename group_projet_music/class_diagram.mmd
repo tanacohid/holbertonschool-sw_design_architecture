@@ -1,0 +1,32 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+
+    class User{
+        +add_song()
+        +add_playlist()
+        +add_artist()
+    }
+
+    class Library{
+
+    }
+
+    class Artist{
+
+    }
+
+    classe Albume{
+
+    }
+
+    classe Song{
+
+    }
+
+    Artist "1" *-- "0..*" Album
+    Album "1" *-- "1..*" Song
+    User "1" -- "0..*" Artist
+    Playlist "0..*" o-- "0..*" Song
