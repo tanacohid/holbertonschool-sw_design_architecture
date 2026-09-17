@@ -1,0 +1,11 @@
+sequenceDiagram
+    actor User
+    participant Artist
+    participant Album
+    participant Song
+
+    User --> create_playlist()
+    creat participant Playlist
+    Playlist *-- add_song
+    creat participant Playlist
+    Playlist -->> User: add_to_playlist
