@@ -1,11 +1,15 @@
 sequenceDiagram
-    actor User
-    participant Artist
-    participant Album
-    participant Song
+actor U as User
+participant User
 
-    create participant Playlist
-    User ->> Playlist: create_playlist(User, Song)
-    Playlist -->> User: add_to_playlist
-    Playlist ->> Song: add_song
-    Playlist -->> User: add_song
+U->>User: create_playlist(name)
+create participant P as Playlist
+User->>P: <<create>>
+P-->>User: playlist
+User-->>U: playlist created
+
+U->>P: add_song(song)
+P-->>U: song added
+
+U->>P: remove_song(song)
+P-->>U: song removed
