@@ -5,25 +5,27 @@ config:
 classDiagram
 
     class User{
+        +spoeudo
+        +email
         +add_song()
         +add_playlist()
         +add_artist()
     }
 
-    class Library{
-
+    class Playlist{
+        +name
     }
 
     class Artist{
-
+        +name
     }
 
     classe Albume{
-
+        +title
     }
 
     classe Song{
-
+        +title
     }
 
     Artist "1" *-- "0..*" Album
