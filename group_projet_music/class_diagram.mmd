@@ -1,34 +1,38 @@
----
-config:
-  layout: elk
----
 classDiagram
 
     class User{
-        +spoeudo
-        +email
-        +add_song()
-        +add_playlist()
-        +add_artist()
-    }
-
-    class Playlist{
-        +name
+        +String name
+        +browse()
+        +Playlist create_playlist()
+        +add_to_library(Album)
+        +subscribe_to(Artist)
     }
 
     class Artist{
-        +name
+        +String name
+        +notify(User)
     }
 
-    classe Albume{
-        +title
+    class Album{
+        +String title
     }
 
-    classe Song{
-        +title
+    class Song{
+        +String title
+        +Byte[] data
     }
 
-    Artist "1" *-- "0..*" Album
-    Album "1" *-- "1..*" Song
-    User "1" -- "0..*" Artist
-    Playlist "0..*" o-- "0..*" Song
+    class Playlist{
+        +String name
+        +add_song(Song)
+        +remove_song(Song)
+    }
+
+
+Artist "1" *-- "0*" Album
+Album "1" *-- "1*" Song
+Playlist "1*" o-- "0*" Song
+User --> Artist : Subscriber to
+User "1" *-- "0*" Playlist
+User "1" o-- "0*" Album : Personal Librairy
+User "1" o-- "0*" Song : Personal Librairy
