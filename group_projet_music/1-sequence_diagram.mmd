@@ -4,7 +4,7 @@ sequenceDiagram
     participant Album
     participant Song
 
-User ->> Playlist: create_playlist(User, Song)
+    User ->> Playlist: create_playlist(User, Song)
     create participant Playlist
     Playlist -->> User: add_to_playlist
     Playlist ->> Song: add_song
