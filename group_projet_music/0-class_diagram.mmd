@@ -1,38 +1,38 @@
 classDiagram
+class User{
+    +String name
+    +select_playlist()
+    +select_song()
+    +Playlist create_playlist()
+    +add_to_library(Album)
+    +subscribe_to(Artist)
+}
 
-    class User{
-        +String name
-        +browse()
-        +Playlist create_playlist()
-        +add_to_library(Album)
-        +subscribe_to(Artist)
-    }
+class Artist{
+    +String name
+    +publish(Album)
+    +notify(User, Album)
+}
 
-    class Artist{
-        +String name
-        +notify(User)
-    }
+class Album{
+    +String title
+}
 
-    class Album{
-        +String title
-    }
+class Song{
+    +String title
+}
 
-    class Song{
-        +String title
-        +Byte[] data
-    }
+class Playlist{
+    +String name
+    +add_song(Song)
+    +remove_song(Song)
+}
 
-    class Playlist{
-        +String name
-        +add_song(Song)
-        +remove_song(Song)
-    }
-
-
-Artist "1" *-- "0*" Album
-Album "1" *-- "1*" Song
-Playlist "1*" o-- "0*" Song
+Artist "1" -- "0" Album
+Album "1" -- "1" Song
+Playlist "1" o-- "0" Song
 User --> Artist : Subscriber to
-User "1" *-- "0*" Playlist
-User "1" o-- "0*" Album : Personal Librairy
-User "1" o-- "0*" Song : Personal Librairy
+User "1" -- "0" Playlist
+User "1" o-- "0" Album : Personal Library
+User "1" o-- "0" Song : Personal Library
+

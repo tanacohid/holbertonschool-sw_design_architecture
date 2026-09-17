@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor U as User
+    participant User
+    participant P as Playlist
+    participant S as Song
+
+    U->>User: select_playlist()
+    User-->>U: playlist selected
+
+    U->>User: select_song()
+    User-->>U: song selected
+
+    U->>P: add_song(Song)
+    P-->>U: song added

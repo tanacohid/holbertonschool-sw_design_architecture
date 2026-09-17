@@ -1,0 +1,9 @@
+sequenceDiagram
+    actor U as User
+    participant User
+    participant A as Artist
+
+    U->>User: subscribe_to(Artist)
+    User->>A: subscription recorded
+    A-->>User: successfully subscribed
+    User-->>U: successfully subscribed

@@ -1,0 +1,9 @@
+sequenceDiagram
+    actor U as User
+    participant User
+    participant P as Playlist
+
+    U->>User: create_playlist()
+    User->>P: <<create>>
+    P-->>User: playlist
+    User-->>U: playlist created
